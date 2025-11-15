@@ -217,8 +217,12 @@ else
     echo -e "${YELLOW}⚠️${NC}  Claude Code: NOT FOUND (paid \$20/month)"
 fi
 
-# ChatGPT/OpenAI CLI (paid) - check multiple possible commands
-if command -v chatgpt &> /dev/null; then
+# ChatGPT/OpenAI/Codex CLI (paid) - check multiple possible commands
+if command -v codex &> /dev/null; then
+    CODEX_VERSION=$(codex --version 2>/dev/null | head -n 1 || echo "installed")
+    echo -e "${GREEN}✅${NC} Codex CLI: $CODEX_VERSION ${BLUE}(paid)${NC}"
+    AI_CLI_FOUND=true
+elif command -v chatgpt &> /dev/null; then
     CHATGPT_VERSION=$(chatgpt --version 2>/dev/null | head -n 1 || echo "installed")
     echo -e "${GREEN}✅${NC} ChatGPT CLI: $CHATGPT_VERSION ${BLUE}(paid)${NC}"
     AI_CLI_FOUND=true
@@ -227,7 +231,7 @@ elif command -v openai &> /dev/null; then
     echo -e "${GREEN}✅${NC} OpenAI CLI: $OPENAI_VERSION ${BLUE}(paid)${NC}"
     AI_CLI_FOUND=true
 else
-    echo -e "${YELLOW}⚠️${NC}  ChatGPT/OpenAI CLI: NOT FOUND (paid \$20/month)"
+    echo -e "${YELLOW}⚠️${NC}  ChatGPT/OpenAI/Codex CLI: NOT FOUND (paid \$20/month)"
 fi
 
 # Show recommendation if no AI CLI tools found
@@ -325,20 +329,16 @@ elif [ "$WEEK1_READY" = true ]; then
     echo ""
     echo "You can start the course, but install missing tools before they're needed."
     echo ""
-    echo "Installation guides:"
-    echo "  • PC (Windows): course/onboarding/setup-guide-windows.md"
-    echo "  • Mac (Intel): course/onboarding/setup-guide-mac.md"
-    echo "  • Mac (ARM): course/onboarding/setup-guide-mac.md"
+    echo "Installation guide:"
+    echo "  • https://github.com/Become-A-DevOps-PM/onboarding/blob/main/SETUP-GUIDE.md"
     exit 0
 else
     echo "❌ You are NOT ready for Week 1."
     echo ""
     echo "Please install all missing tools marked with ${YELLOW}(Week 1 required)${NC} above."
     echo ""
-    echo "Installation guides:"
-    echo "  • PC (Windows): course/onboarding/setup-guide-windows.md"
-    echo "  • Mac (Intel): course/onboarding/setup-guide-mac.md"
-    echo "  • Mac (ARM): course/onboarding/setup-guide-mac.md"
+    echo "Installation guide:"
+    echo "  • https://github.com/Become-A-DevOps-PM/onboarding/blob/main/SETUP-GUIDE.md"
     echo ""
     echo "After installation, re-run: ${BLUE}./verify-setup.sh${NC}"
     exit 1
