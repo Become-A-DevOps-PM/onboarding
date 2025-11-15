@@ -1,4 +1,5 @@
 # IPL25 Course Setup Guide
+
 ## Complete Installation Instructions for All Platforms
 
 **Last Updated:** 2025-11-15
@@ -10,20 +11,24 @@
 ## Table of Contents
 
 ### Quick Start
+
 - [Overview: What You Need to Install](#overview-what-you-need-to-install)
 - [Installation Order](#installation-order)
 - [Important: Which Terminal to Use](#important-which-terminal-to-use)
 
 ### Required Accounts
+
 1. [Azure Account (Pay-as-you-go)](#1-azure-account-pay-as-you-go)
 2. [GitHub Account](#2-github-account)
 
 ### Package Managers
+
 3. [Package Manager (Platform-Specific)](#3-package-manager-platform-specific)
    - [PC (Windows) - winget](#pc-windows---optional-winget)
    - [Mac - Homebrew](#mac---required-homebrew)
 
 ### Required CLI Tools
+
 4. [Git (Version Control)](#4-git-version-control)
 5. [Azure CLI (Cloud Management)](#6-azure-cli-cloud-management)
 6. [GitHub CLI (Repository Management)](#7-github-cli-repository-management)
@@ -31,10 +36,12 @@
 8. [PostgreSQL Client (Database Client)](#10-postgresql-client-database-client)
 
 ### Required Development Tools
+
 9. [Visual Studio Code (IDE)](#5-visual-studio-code-ide)
 10. [Python 3.11+ (Programming Language)](#9-python-311-programming-language)
 
 ### Recommended AI Tools
+
 11. [AI Chatbot (Recommended)](#11-ai-chatbot-recommended)
     - [Google Gemini](#option-a-google-gemini-recommended-for-students)
     - [Claude AI](#option-b-claude-ai)
@@ -43,6 +50,7 @@
     - [Gemini CLI (Free)](#gemini-cli-free)
 
 ### Verification & Help
+
 - [Verification: Run the Verification Script](#verification-run-the-verification-script)
 - [Expected Results](#expected-results)
 - [Troubleshooting](#troubleshooting)
@@ -56,10 +64,12 @@
 ## Overview: What You Need to Install
 
 ### Required Accounts
+
 1. **Azure Account** (pay-as-you-go billing, recommended)
 2. **GitHub Account** (free personal account)
 
 ### Required CLI Tools
+
 3. **Azure CLI** (cloud management)
 4. **Bicep CLI** (infrastructure as code)
 5. **Git** (version control)
@@ -67,14 +77,17 @@
 7. **PostgreSQL Client** (database client)
 
 ### Required Development Tools
+
 8. **Visual Studio Code** (code editor)
 9. **Python 3.11+** (programming language)
 
 ### Recommended AI Tools
+
 10. **AI Chatbot** - At least one of: Claude, ChatGPT, or Gemini (all free)
 11. **AI CLI Tool** - Gemini CLI (only free option)
 
 ### Platform-Specific Requirements
+
 - **PC (Windows):** Git Bash (included with Git for Windows)
 - **Mac:** Homebrew (package manager, recommended)
 
@@ -104,17 +117,20 @@
 ## Important: Which Terminal to Use
 
 ### PC (Windows) Users
+
 **ALWAYS use Git Bash for all terminal commands in this guide.**
 
 - ❌ **DO NOT use:** PowerShell, Command Prompt (cmd), or Windows Terminal
 - ✅ **ALWAYS use:** Git Bash (installed with Git for Windows in step 4)
 
 **How to open Git Bash:**
+
 - Right-click on desktop → "Git Bash Here"
 - Or: Start menu → search "Git Bash"
 - Or: In VS Code → Open terminal and ensure Git Bash is selected
 
 **Why Git Bash?**
+
 - Provides bash shell on Windows (same as Mac/Linux)
 - All course commands work in bash
 - Avoids Windows-specific path and command issues
@@ -122,6 +138,7 @@
 ---
 
 ### Mac Users
+
 **Use the built-in Terminal application.**
 
 - Terminal.app (built-in)
@@ -129,6 +146,7 @@
 - Uses bash or zsh by default (both work)
 
 **How to open Terminal:**
+
 - Applications → Utilities → Terminal
 - Or: Cmd+Space → type "Terminal"
 
@@ -205,11 +223,13 @@
 Windows Package Manager (winget) is **optional but recommended** for easier installation.
 
 **Check if installed:**
+
 ```bash
 winget --version
 ```
 
 **If not installed:**
+
 - Built into Windows 11 by default
 - Windows 10: Install from Microsoft Store: "App Installer"
 
@@ -233,6 +253,7 @@ Homebrew is **strongly recommended** for Mac users.
 **For Mac Intel:** Homebrew installs to `/usr/local`
 
 **Verification:**
+
 ```bash
 brew --version
 ```
@@ -250,11 +271,13 @@ Git is required for version control and code management.
 **Installation:**
 
 **Option A: Using winget (recommended)**
+
 ```bash
 winget install Git.Git
 ```
 
 **Option B: Manual download**
+
 1. Download from [https://git-scm.com/download/win](https://git-scm.com/download/win)
 2. Run installer `Git-2.x.x-64-bit.exe`
 3. **Important installation options:**
@@ -269,6 +292,7 @@ winget install Git.Git
 **IMPORTANT: After installation, ALWAYS use Git Bash for all commands!**
 
 **Verification:**
+
 ```bash
 # Open Git Bash (NOT PowerShell, NOT Command Prompt)
 # Right-click desktop → "Git Bash Here" or search "Git Bash" in Start menu
@@ -280,16 +304,19 @@ git --version
 ### Mac (Intel and ARM): Git via Homebrew or Xcode
 
 **Option A: Using Homebrew (recommended)**
+
 ```bash
 brew install git
 ```
 
 **Option B: Xcode Command Line Tools**
+
 ```bash
 xcode-select --install
 ```
 
 **Verification:**
+
 ```bash
 git --version
 ```
@@ -309,6 +336,7 @@ git config --global init.defaultBranch main
 ```
 
 **Optional but recommended:**
+
 ```bash
 git config --global core.editor "code --wait"
 ```
@@ -320,11 +348,13 @@ git config --global core.editor "code --wait"
 ### PC (Windows)
 
 **Option A: Using winget**
+
 ```bash
 winget install Microsoft.VisualStudioCode
 ```
 
 **Option B: Manual download**
+
 1. Download from [https://code.visualstudio.com/](https://code.visualstudio.com/)
 2. Run installer `VSCodeSetup-x64-*.exe`
 3. Accept defaults
@@ -338,6 +368,7 @@ winget install Microsoft.VisualStudioCode
 4. Select **"Git Bash"**
 
 **Verification:**
+
 ```bash
 # In Git Bash
 code --version
@@ -348,18 +379,21 @@ code --version
 ### Mac (Intel)
 
 **Download and install:**
+
 1. Download from [https://code.visualstudio.com/](https://code.visualstudio.com/)
 2. Download **"Mac Intel Chip"** version
 3. Open downloaded `.zip` file
 4. Drag `Visual Studio Code.app` to `Applications` folder
 
 **Add to PATH:**
+
 1. Open VS Code
 2. Press `Cmd+Shift+P` (Command Palette)
 3. Type "Shell Command: Install 'code' command in PATH"
 4. Press Enter
 
 **Verification:**
+
 ```bash
 code --version
 ```
@@ -369,18 +403,21 @@ code --version
 ### Mac (ARM / Apple Silicon)
 
 **Download and install:**
+
 1. Download from [https://code.visualstudio.com/](https://code.visualstudio.com/)
 2. Download **"Mac Apple Silicon"** version
 3. Open downloaded `.zip` file
 4. Drag `Visual Studio Code.app` to `Applications` folder
 
 **Add to PATH:**
+
 1. Open VS Code
 2. Press `Cmd+Shift+P` (Command Palette)
 3. Type "Shell Command: Install 'code' command in PATH"
 4. Press Enter
 
 **Verification:**
+
 ```bash
 code --version
 ```
@@ -394,17 +431,20 @@ code --version
 ### PC (Windows)
 
 **Option A: Using winget (recommended)**
+
 ```bash
 winget install Microsoft.AzureCLI
 ```
 
 **Option B: Manual download**
+
 1. Download MSI installer from [https://aka.ms/installazurecli](https://aka.ms/installazurecli)
 2. Run `azure-cli-*.msi`
 3. Follow installer prompts
 4. **Restart Git Bash after installation**
 
 **Verification:**
+
 ```bash
 # Restart Git Bash first
 az --version
@@ -415,11 +455,13 @@ az --version
 ### Mac (Intel and ARM)
 
 **Using Homebrew:**
+
 ```bash
 brew install azure-cli
 ```
 
 **Verification:**
+
 ```bash
 az --version
 ```
@@ -441,11 +483,13 @@ az login
 - Terminal will show: "You have logged in"
 
 **Verify authentication:**
+
 ```bash
 az account show
 ```
 
 **Set default subscription (if you have multiple):**
+
 ```bash
 # List subscriptions
 az account list --output table
@@ -461,17 +505,20 @@ az account set --subscription "Subscription Name"
 ### PC (Windows)
 
 **Option A: Using winget (recommended)**
+
 ```bash
 winget install GitHub.cli
 ```
 
 **Option B: Manual download**
+
 1. Download from [https://cli.github.com/](https://cli.github.com/)
 2. Download Windows MSI installer
 3. Run `gh_*_windows_amd64.msi`
 4. **Restart Git Bash after installation**
 
 **Verification:**
+
 ```bash
 # Restart Git Bash first
 gh --version
@@ -482,11 +529,13 @@ gh --version
 ### Mac (Intel and ARM)
 
 **Using Homebrew:**
+
 ```bash
 brew install gh
 ```
 
 **Verification:**
+
 ```bash
 gh --version
 ```
@@ -504,6 +553,7 @@ gh auth login
 ```
 
 **Follow prompts:**
+
 1. Choose: **GitHub.com**
 2. Choose: **HTTPS**
 3. Choose: **Login with a web browser**
@@ -512,6 +562,7 @@ gh auth login
 6. Paste code and authorize
 
 **Verify authentication:**
+
 ```bash
 gh auth status
 ```
@@ -525,11 +576,13 @@ Bicep CLI is installed via Azure CLI.
 ### All Platforms - Same Process
 
 **Install Bicep:**
+
 ```bash
 az bicep install
 ```
 
 **Verification:**
+
 ```bash
 az bicep version
 ```
@@ -543,11 +596,13 @@ az bicep version
 ### PC (Windows)
 
 **Option A: Using winget (recommended)**
+
 ```bash
 winget install Python.Python.3.11
 ```
 
 **Option B: Manual download**
+
 1. Download from [https://www.python.org/downloads/](https://www.python.org/downloads/)
 2. Download **Python 3.11.x** (or later)
 3. Run installer `python-3.11.x-amd64.exe`
@@ -556,6 +611,7 @@ winget install Python.Python.3.11
 6. **Restart Git Bash after installation**
 
 **Verification:**
+
 ```bash
 # Restart Git Bash first
 python --version
@@ -571,11 +627,13 @@ pip --version
 ### Mac (Intel and ARM)
 
 **Using Homebrew:**
+
 ```bash
 brew install python@3.11
 ```
 
 **Verification:**
+
 ```bash
 python3 --version
 pip3 --version
@@ -588,6 +646,7 @@ pip3 --version
 ### Verify Python Version (All Platforms)
 
 **Ensure version is 3.11 or higher:**
+
 ```bash
 python3 --version
 ```
@@ -599,11 +658,13 @@ python3 --version
 ## 10. PostgreSQL Client (Database Client)
 
 **Note:** We use PostgreSQL for **both local development and Azure production** (no SQLite). This ensures:
+
 - Production parity: Same database everywhere
 - No migration headaches: What works locally works in Azure
 - One database to learn: PostgreSQL only
 
 **Installation Timeline:**
+
 - **Setup (now)**: Install PostgreSQL locally
 - **Week 1-2**: Not used yet (basic Flask, no database)
 - **Week 3+**: Start using PostgreSQL locally, then deploy to Azure
@@ -625,6 +686,7 @@ python3 --version
 5. **Restart Git Bash after installation**
 
 **PostgreSQL service should start automatically on Windows. To verify:**
+
 ```bash
 # Check if PostgreSQL service is running (in PowerShell or Command Prompt)
 # Run: services.msc
@@ -632,6 +694,7 @@ python3 --version
 ```
 
 **Add to PATH (if not automatic):**
+
 ```bash
 # Add to ~/.bashrc in Git Bash
 echo 'export PATH="/c/Program Files/PostgreSQL/16/bin:$PATH"' >> ~/.bashrc
@@ -639,6 +702,7 @@ source ~/.bashrc
 ```
 
 **Verification:**
+
 ```bash
 # Restart Git Bash first
 psql --version
@@ -654,18 +718,21 @@ psql -U postgres -h localhost
 ### Mac (Intel and ARM)
 
 **Using Homebrew:**
+
 ```bash
 # Install PostgreSQL (includes both client and server)
 brew install postgresql@14
 ```
 
 **Start PostgreSQL service:**
+
 ```bash
 # Start PostgreSQL service and enable auto-start on system boot
 brew services start postgresql@14
 ```
 
 **Verification:**
+
 ```bash
 # Check version
 psql --version
@@ -681,7 +748,9 @@ psql -U $(whoami) -d postgres
 **Note for ARM Mac:** Homebrew installs native ARM version.
 
 **Troubleshooting:**
+
 - If `psql -U $(whoami) -d postgres` fails, create your user database:
+
   ```bash
   createdb $(whoami)
   psql
@@ -698,18 +767,21 @@ psql -U $(whoami) -d postgres
 ### Option A: Google Gemini (Recommended for Students)
 
 **Advantages:**
+
 - Completely free
 - No usage limits on free tier
 - Good code generation
 - Also has free CLI tool (see section 12)
 
 **Setup:**
+
 1. Navigate to [https://gemini.google.com/](https://gemini.google.com/)
 2. Sign in with Google account
 3. Accept terms of service
 4. Start using immediately
 
 **Verification:**
+
 - Ask a test question: "Explain what SSH is"
 - Verify you get a response
 
@@ -718,21 +790,25 @@ psql -U $(whoami) -d postgres
 ### Option B: Claude AI
 
 **Advantages:**
+
 - Excellent at explaining complex concepts
 - Great for code review and refactoring
 - Strong reasoning capabilities
 
 **Limitations (Free Tier):**
+
 - Usage limited (resets every 5 hours)
 - Access to latest Claude 4 model requires paid subscription ($20/month)
 
 **Setup:**
+
 1. Navigate to [https://claude.ai/](https://claude.ai/)
 2. Sign up with email (use private email, not school email)
 3. Verify email address
 4. Start using immediately
 
 **Verification:**
+
 - Ask a test question: "Explain what SSH is"
 - Verify you get a response
 
@@ -741,21 +817,25 @@ psql -U $(whoami) -d postgres
 ### Option C: ChatGPT
 
 **Advantages:**
+
 - Very popular, lots of community knowledge
 - Good general-purpose assistant
 - Extensive plugin ecosystem (paid tiers)
 
 **Limitations (Free Tier):**
+
 - Usage limited (rate limits apply)
 - Access to latest GPT-5 requires paid subscription ($20/month)
 
 **Setup:**
+
 1. Navigate to [https://chat.openai.com/](https://chat.openai.com/)
 2. Sign up with email (use private email, not school email)
 3. Verify email address
 4. Start using immediately
 
 **Verification:**
+
 - Ask a test question: "Explain what SSH is"
 - Verify you get a response
 
@@ -764,6 +844,7 @@ psql -U $(whoami) -d postgres
 ### Recommendation for IPL25 Students
 
 **Best choice:** **Google Gemini** because:
+
 - ✅ Completely free with no limits
 - ✅ Also offers free CLI tool (next section)
 - ✅ Good balance of capabilities for this course
@@ -782,6 +863,7 @@ psql -U $(whoami) -d postgres
 ### Gemini CLI (Free)
 
 **What you get:**
+
 - AI assistance directly in your terminal
 - 60 requests per minute, 1,000 requests per day (free)
 - No API key or credit card required
@@ -792,6 +874,7 @@ psql -U $(whoami) -d postgres
 ### Installation:
 
 **Prerequisites:**
+
 - Google account (same as for Gemini chatbot)
 - Node.js and npm (see platform-specific installation below)
 
@@ -807,6 +890,7 @@ psql -U $(whoami) -d postgres
 4. **Restart Git Bash after installation**
 
 **Verify Node.js installation:**
+
 ```bash
 # Restart Git Bash first
 node --version
@@ -814,11 +898,13 @@ npm --version
 ```
 
 **Install Gemini CLI:**
+
 ```bash
 npm install -g @google/gemini-cli
 ```
 
 **Verification:**
+
 ```bash
 gemini --version
 ```
@@ -828,22 +914,26 @@ gemini --version
 ### Mac (Intel and ARM)
 
 **Option A: Using Homebrew (Recommended - No Node.js needed)**
+
 ```bash
 brew install gemini-cli
 ```
 
 **Option B: Using npm (if you already have Node.js)**
+
 ```bash
 npm install -g @google/gemini-cli
 ```
 
 **If you don't have Node.js and want to use npm method:**
+
 ```bash
 brew install node
 npm install -g @google/gemini-cli
 ```
 
 **Verification:**
+
 ```bash
 gemini --version
 ```
@@ -855,6 +945,7 @@ gemini --version
 ### Authentication:
 
 **First time setup:**
+
 ```bash
 gemini auth login
 ```
@@ -865,6 +956,7 @@ gemini auth login
 - Return to terminal
 
 **Verify authentication:**
+
 ```bash
 gemini auth status
 ```
@@ -905,12 +997,14 @@ gemini "Write a bash script to stop all Azure VMs"
 After installing all tools, verify your setup:
 
 **IMPORTANT: Run verification script in:**
+
 - **PC:** Git Bash
 - **Mac:** Terminal
 
 ### Download and run verification script:
 
 **Option A: Download and run locally**
+
 ```bash
 # PC: Run in Git Bash | Mac: Run in Terminal
 
@@ -925,11 +1019,13 @@ chmod +x verify-setup.sh
 ```
 
 **Option B: Run directly (without download)**
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Become-A-DevOps-PM/onboarding/main/verify-setup.sh | bash
 ```
 
 **Or if you have the course repository:**
+
 ```bash
 cd course/onboarding
 ./verify-setup.sh
@@ -941,7 +1037,7 @@ cd course/onboarding
 
 ### ✅ Success - All Tools Installed
 
-```
+```text
 ✅ WEEK 1: OK
 ✅ ALL: OK
 
@@ -950,7 +1046,7 @@ cd course/onboarding
 
 ### ⚠️ Partial - Week 1 Ready, Missing Some Tools
 
-```
+```text
 ✅ WEEK 1: OK
 ❌ ALL: NOT OK
 
@@ -959,7 +1055,7 @@ cd course/onboarding
 
 ### ❌ Not Ready - Missing Week 1 Tools
 
-```
+```text
 ❌ WEEK 1: NOT OK
 ❌ ALL: NOT OK
 
@@ -973,32 +1069,41 @@ cd course/onboarding
 ### Common Issues
 
 #### Azure CLI not found (PC)
+
 - **Solution:** Restart Git Bash after installation
 - **Alternative:** Add to PATH manually:
+
   ```bash
   echo 'export PATH="/c/Program Files/Microsoft SDKs/Azure/CLI2/wbin:$PATH"' >> ~/.bashrc
   source ~/.bashrc
   ```
 
 #### Python not found (PC)
+
 - **Solution:** Ensure you checked "Add Python to PATH" during installation
 - **Fix:** Reinstall Python and check the PATH option
 - **Verification:** Restart Git Bash
 
 #### `code` command not found (Mac)
+
 - **Solution:** Open VS Code and run "Shell Command: Install 'code' command in PATH"
 
 #### Git Bash not default terminal in VS Code (PC)
+
 - **Solution:** Open VS Code → `Ctrl+Shift+P` → "Terminal: Select Default Profile" → "Git Bash"
 
 #### Homebrew installation issues (Mac)
+
 - **Check:** Ensure Xcode Command Line Tools are installed first:
+
   ```bash
   xcode-select --install
   ```
+
 - **Follow:** Post-installation instructions to add Homebrew to PATH
 
 #### psql not found (PC)
+
 - **Solution:** Ensure PostgreSQL bin folder is in PATH
 - **Check:** `C:\Program Files\PostgreSQL\16\bin` exists
 - **Add to PATH:** See PostgreSQL installation section above
@@ -1010,6 +1115,7 @@ cd course/onboarding
 ### PC (Windows) - Using winget
 
 **IMPORTANT: Terminal to use:**
+
 - **winget commands:** Use PowerShell or Command Prompt (winget doesn't work in Git Bash)
 - **All other commands (az, gh, npm, git, etc.):** Use Git Bash
 
@@ -1137,12 +1243,14 @@ Once all tools are installed:
 ## Support
 
 **Installation issues?**
+
 - Check troubleshooting section above
 - Search error messages online
 - Ask in course Discord/Teams channel
 - Contact instructor during office hours
 
 **Ready for the course?**
+
 - Run verification script: `./verify-setup.sh`
 - Expected output: ✅ WEEK 1: OK and ✅ ALL: OK
 
