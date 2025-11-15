@@ -1,0 +1,35 @@
+{
+  "recommendations": [
+    // Python Development
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+
+    // Database (PostgreSQL)
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+
+    // Azure & Infrastructure
+    "ms-azuretools.vscode-bicep",
+    "ms-vscode.azure-account",
+    "ms-azuretools.vscode-azureresourcegroups",
+
+    // Remote Development
+    "ms-vscode-remote.remote-ssh",
+
+    // Code Quality & Git
+    "eamodio.gitlens",
+
+    // Configuration & Scripting
+    "redhat.vscode-yaml",
+    "mads-hartmann.bash-ide-vscode",
+
+    // Optional but useful
+    "yzhang.markdown-all-in-one",
+    "editorconfig.editorconfig"
+  ],
+  "unwantedRecommendations": [
+    // Not using SQLite
+    "alexcvzz.vscode-sqlite",
+    "yy0931.vscode-sqlite3-editor"
+  ]
+}
