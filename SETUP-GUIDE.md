@@ -1,10 +1,23 @@
+---
+title: IPL25 Course Setup Guide
+subtitle: Complete Installation Instructions for All Platforms
+course: IPL25 - Server, Network and IT Security
+version: 1.0
+last_updated: 2025-11-15
+timeline: Install BEFORE course starts (or Day 1 at latest)
+authors:
+  - IPL25 Course Team
+tags:
+  - setup
+  - installation
+  - onboarding
+  - tools
+  - prerequisites
+---
+
 # IPL25 Course Setup Guide
 
 ## Complete Installation Instructions for All Platforms
-
-**Last Updated:** 2025-11-15
-**Course:** IPL25 - Server, Network and IT Security
-**Timeline:** Install BEFORE course starts (or Day 1 at latest)
 
 ---
 
@@ -1375,8 +1388,8 @@ Once all tools are installed:
 ## Next Steps
 
 1. **Set up Azure billing alerts** (if not already done)
-2. **Join course Teams/Discord** (check email for invitation)
-3. **Wait for Day 1 instructions**
+2. **Wait for Day 1 instructions**
+3. **We will have some time during the course to troubleshoot as well**
 
 ---
 
@@ -1386,16 +1399,8 @@ Once all tools are installed:
 
 - Check troubleshooting section above
 - Search error messages online
-- Ask in course Discord/Teams channel
-- Contact instructor during office hours
 
 **Ready for the course?**
 
 - Run verification script: `./verify-setup.sh`
 - Expected output: ✅ WEEK 1: OK and ✅ ALL: OK
-
----
-
-**Document Version:** 1.0
-**Last Updated:** 2025-11-15
-**Course:** IPL25 - Server, Network and IT Security
