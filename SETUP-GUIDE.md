@@ -598,25 +598,34 @@ python3 --version
 
 ## 10. PostgreSQL Client (Database Client)
 
-**Note:** We only need the **client tools** (psql), not the full database server.
+**Note:** We install PostgreSQL with both client tools (psql) and server for local development before deploying to Azure.
 
 ### PC (Windows)
 
 **Manual installation required:**
 
 1. Download PostgreSQL installer from [https://www.postgresql.org/download/windows/](https://www.postgresql.org/download/windows/)
-2. Run installer `postgresql-*.exe`
+2. Run installer `postgresql-*.exe` (version 14 or later)
 3. During installation:
+   - ✅ Check "PostgreSQL Server" (needed for local development)
    - ✅ Check "Command Line Tools" (includes psql)
-   - ❌ Uncheck "PostgreSQL Server" (we don't need the server)
-   - ❌ Uncheck "pgAdmin" (optional, can uncheck)
-   - ❌ Uncheck "Stack Builder" (optional, can uncheck)
+   - ✅ Check "pgAdmin" (optional, but useful for database management)
+   - ❌ Uncheck "Stack Builder" (optional, can skip)
+   - Set password for database superuser (postgres) - **remember this password!**
+   - Use default port: 5432
 4. Complete installation
 5. **Restart Git Bash after installation**
 
+**PostgreSQL service should start automatically on Windows. To verify:**
+```bash
+# Check if PostgreSQL service is running (in PowerShell or Command Prompt)
+# Run: services.msc
+# Look for "postgresql-x64-14" (or similar) - should show "Running"
+```
+
 **Add to PATH (if not automatic):**
 ```bash
-# Add to ~/.bashrc
+# Add to ~/.bashrc in Git Bash
 echo 'export PATH="/c/Program Files/PostgreSQL/16/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -625,6 +634,11 @@ source ~/.bashrc
 ```bash
 # Restart Git Bash first
 psql --version
+
+# Test connection to local database
+psql -U postgres -h localhost
+# Enter the password you set during installation
+# Type \q to quit
 ```
 
 ---
@@ -633,17 +647,37 @@ psql --version
 
 **Using Homebrew:**
 ```bash
-brew install postgresql
+# Install PostgreSQL (includes both client and server)
+brew install postgresql@14
 ```
 
-**This installs both client and server, but you only need client tools.**
+**Start PostgreSQL service:**
+```bash
+# Start PostgreSQL service and enable auto-start on system boot
+brew services start postgresql@14
+```
 
 **Verification:**
 ```bash
+# Check version
 psql --version
+
+# Verify service is running
+brew services list | grep postgresql
+
+# Test connection to local database
+psql -U $(whoami) -d postgres
+# Type \q to quit
 ```
 
 **Note for ARM Mac:** Homebrew installs native ARM version.
+
+**Troubleshooting:**
+- If `psql -U $(whoami) -d postgres` fails, create your user database:
+  ```bash
+  createdb $(whoami)
+  psql
+  ```
 
 ---
 
@@ -1043,8 +1077,11 @@ brew install gh
 # Python 3.11+
 brew install python@3.11
 
-# PostgreSQL client
-brew install postgresql
+# PostgreSQL (client and server)
+brew install postgresql@14
+
+# Start PostgreSQL service
+brew services start postgresql@14
 
 # Bicep (via Azure CLI)
 az bicep install
