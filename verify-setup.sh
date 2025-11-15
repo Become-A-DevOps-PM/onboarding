@@ -59,7 +59,7 @@ detect_platform() {
 }
 
 # Check function
-# Parameters: tool_name, command_check, version_check, when_needed (week1|all)
+# Parameters: tool_name, command_check, version_check, when_needed (week1|all|optional)
 check_tool() {
     local tool_name="$1"
     local command_check="$2"
@@ -73,7 +73,6 @@ check_tool() {
         else
             echo -e "${GREEN}✅${NC} $tool_name: installed"
         fi
-        return 0
     else
         if [ "$when_needed" = "week1" ]; then
             echo -e "${RED}❌${NC} $tool_name: NOT FOUND ${YELLOW}(Week 1 required)${NC}"
@@ -85,8 +84,8 @@ check_tool() {
         else
             echo -e "${YELLOW}⚠️${NC}  $tool_name: NOT FOUND (optional)"
         fi
-        return 1
     fi
+    return 0
 }
 
 # Start detection
@@ -189,7 +188,19 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  4. PLATFORM-SPECIFIC"
+echo "  4. AI TOOLS (RECOMMENDED)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+# Node.js (needed for Gemini CLI via npm)
+check_tool "Node.js" "command -v node" "node --version" "optional"
+
+# Gemini CLI
+check_tool "Gemini CLI" "command -v gemini" "gemini --version 2>/dev/null | head -n 1" "optional"
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "  5. PLATFORM-SPECIFIC"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -255,6 +266,7 @@ if [ "$ALL_READY" = true ]; then
     echo "  ✅ Accounts: Azure, GitHub"
     echo "  ✅ CLI Tools: Git, Azure CLI, GitHub CLI, Bicep, PostgreSQL"
     echo "  ✅ Development: VS Code, Python 3.11+"
+    echo "  • AI Tools: Node.js, Gemini CLI (recommended)"
     echo ""
     echo "See you on Day 1! 🚀"
     exit 0
