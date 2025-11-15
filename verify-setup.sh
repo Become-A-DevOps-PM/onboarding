@@ -192,11 +192,51 @@ echo "  4. AI TOOLS (RECOMMENDED)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
+# Track if at least one AI CLI tool is found
+AI_CLI_FOUND=false
+
 # Node.js (needed for Gemini CLI via npm)
 check_tool "Node.js" "command -v node" "node --version" "optional"
 
-# Gemini CLI
-check_tool "Gemini CLI" "command -v gemini" "gemini --version 2>/dev/null | head -n 1" "optional"
+# AI CLI Tools
+# Gemini CLI (free)
+if command -v gemini &> /dev/null; then
+    GEMINI_VERSION=$(gemini --version 2>/dev/null | head -n 1)
+    echo -e "${GREEN}✅${NC} Gemini CLI: $GEMINI_VERSION ${BLUE}(free)${NC}"
+    AI_CLI_FOUND=true
+else
+    echo -e "${YELLOW}⚠️${NC}  Gemini CLI: NOT FOUND (free option)"
+fi
+
+# Claude Code (paid)
+if command -v claude &> /dev/null; then
+    CLAUDE_VERSION=$(claude --version 2>/dev/null | head -n 1)
+    echo -e "${GREEN}✅${NC} Claude Code: $CLAUDE_VERSION ${BLUE}(paid)${NC}"
+    AI_CLI_FOUND=true
+else
+    echo -e "${YELLOW}⚠️${NC}  Claude Code: NOT FOUND (paid \$20/month)"
+fi
+
+# ChatGPT/OpenAI CLI (paid) - check multiple possible commands
+if command -v chatgpt &> /dev/null; then
+    CHATGPT_VERSION=$(chatgpt --version 2>/dev/null | head -n 1 || echo "installed")
+    echo -e "${GREEN}✅${NC} ChatGPT CLI: $CHATGPT_VERSION ${BLUE}(paid)${NC}"
+    AI_CLI_FOUND=true
+elif command -v openai &> /dev/null; then
+    OPENAI_VERSION=$(openai --version 2>/dev/null | head -n 1 || echo "installed")
+    echo -e "${GREEN}✅${NC} OpenAI CLI: $OPENAI_VERSION ${BLUE}(paid)${NC}"
+    AI_CLI_FOUND=true
+else
+    echo -e "${YELLOW}⚠️${NC}  ChatGPT/OpenAI CLI: NOT FOUND (paid \$20/month)"
+fi
+
+# Show recommendation if no AI CLI tools found
+if [ "$AI_CLI_FOUND" = false ]; then
+    echo ""
+    echo -e "${YELLOW}⚠️  Recommendation:${NC} Install at least one AI CLI tool"
+    echo -e "   ${BLUE}→${NC} Free option: Gemini CLI (npm install -g @google/gemini-cli)"
+    echo -e "   ${BLUE}→${NC} Paid options: Claude Code or ChatGPT CLI (\$20/month)"
+fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -266,7 +306,11 @@ if [ "$ALL_READY" = true ]; then
     echo "  ✅ Accounts: Azure, GitHub"
     echo "  ✅ CLI Tools: Git, Azure CLI, GitHub CLI, Bicep, PostgreSQL"
     echo "  ✅ Development: VS Code, Python 3.11+"
-    echo "  • AI Tools: Node.js, Gemini CLI (recommended)"
+    if [ "$AI_CLI_FOUND" = true ]; then
+        echo "  ✅ AI Tools: At least one AI CLI tool installed (recommended)"
+    else
+        echo "  ⚠️  AI Tools: No AI CLI tools found (recommended)"
+    fi
     echo ""
     echo "See you on Day 1! 🚀"
     exit 0
@@ -275,6 +319,9 @@ elif [ "$WEEK1_READY" = true ]; then
     echo ""
     echo "Week 1 ready, but install these for later weeks:"
     echo "  • Tools marked with ${BLUE}(Full course required)${NC} above"
+    if [ "$AI_CLI_FOUND" = false ]; then
+        echo "  • At least one AI CLI tool (Gemini CLI recommended - free)"
+    fi
     echo ""
     echo "You can start the course, but install missing tools before they're needed."
     echo ""
