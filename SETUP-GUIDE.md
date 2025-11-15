@@ -38,6 +38,7 @@
 ### Required Development Tools
 
 9. [Visual Studio Code (IDE)](#5-visual-studio-code-ide)
+   - [VS Code Extensions (Recommended)](#vs-code-extensions-recommended)
 10. [Python 3.11+ (Programming Language)](#9-python-311-programming-language)
 
 ### Recommended AI Tools
@@ -423,6 +424,145 @@ code --version
 ```
 
 **Note:** Native ARM version provides better performance on Apple Silicon.
+
+---
+
+### VS Code Extensions (Recommended)
+
+After installing VS Code, install these extensions for the IPL25 course:
+
+#### Essential Extensions (Install These)
+
+**1. Python Development:**
+
+- **Python** (`ms-python.python`)
+  - Official Python extension with IntelliSense, debugging, linting
+  - Install: `code --install-extension ms-python.python`
+
+- **Pylance** (`ms-python.vscode-pylance`)
+  - Fast Python language server with type checking
+  - Install: `code --install-extension ms-python.vscode-pylance`
+
+**2. Database (PostgreSQL):**
+
+- **SQLTools** (`mtxr.sqltools`)
+  - Database management and query execution
+  - Install: `code --install-extension mtxr.sqltools`
+
+- **SQLTools PostgreSQL Driver** (`mtxr.sqltools-driver-pg`)
+  - PostgreSQL driver for SQLTools
+  - Install: `code --install-extension mtxr.sqltools-driver-pg`
+
+**3. Azure & Infrastructure:**
+
+- **Bicep** (`ms-azuretools.vscode-bicep`)
+  - Official Bicep language support (Week 4)
+  - Install: `code --install-extension ms-azuretools.vscode-bicep`
+
+- **Azure Account** (`ms-vscode.azure-account`)
+  - Sign in to Azure and manage subscriptions
+  - Install: `code --install-extension ms-vscode.azure-account`
+
+- **Azure Resources** (`ms-azuretools.vscode-azureresourcegroups`)
+  - View and manage Azure resources
+  - Install: `code --install-extension ms-azuretools.vscode-azureresourcegroups`
+
+**4. Remote Development:**
+
+- **Remote - SSH** (`ms-vscode-remote.remote-ssh`)
+  - Connect to Azure VMs via SSH
+  - Install: `code --install-extension ms-vscode-remote.remote-ssh`
+
+**5. Code Quality:**
+
+- **GitLens** (`eamodio.gitlens`)
+  - Supercharge Git with blame annotations, history, and more
+  - Install: `code --install-extension eamodio.gitlens`
+
+**6. Configuration & Scripting:**
+
+- **YAML** (`redhat.vscode-yaml`)
+  - YAML language support for config files
+  - Install: `code --install-extension redhat.vscode-yaml`
+
+- **Bash IDE** (`mads-hartmann.bash-ide-vscode`)
+  - Bash scripting support with linting
+  - Install: `code --install-extension mads-hartmann.bash-ide-vscode`
+
+#### Optional But Useful Extensions
+
+- **Markdown All in One** (`yzhang.markdown-all-in-one`)
+  - Markdown editing with preview and shortcuts
+  - Install: `code --install-extension yzhang.markdown-all-in-one`
+
+- **EditorConfig** (`editorconfig.editorconfig`)
+  - Maintain consistent coding styles
+  - Install: `code --install-extension editorconfig.editorconfig`
+
+- **Docker** (`ms-azuretools.vscode-docker`)
+  - Docker support (if you explore containers later)
+  - Install: `code --install-extension ms-azuretools.vscode-docker`
+
+#### Install All Essential Extensions at Once
+
+**PC (Windows) - Git Bash:**
+
+```bash
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension mtxr.sqltools
+code --install-extension mtxr.sqltools-driver-pg
+code --install-extension ms-azuretools.vscode-bicep
+code --install-extension ms-vscode.azure-account
+code --install-extension ms-azuretools.vscode-azureresourcegroups
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension eamodio.gitlens
+code --install-extension redhat.vscode-yaml
+code --install-extension mads-hartmann.bash-ide-vscode
+```
+
+**Mac (Intel and ARM) - Terminal:**
+
+```bash
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension mtxr.sqltools
+code --install-extension mtxr.sqltools-driver-pg
+code --install-extension ms-azuretools.vscode-bicep
+code --install-extension ms-vscode.azure-account
+code --install-extension ms-azuretools.vscode-azureresourcegroups
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension eamodio.gitlens
+code --install-extension redhat.vscode-yaml
+code --install-extension mads-hartmann.bash-ide-vscode
+```
+
+#### Verify Extensions Installed
+
+```bash
+code --list-extensions
+```
+
+You should see all installed extensions listed.
+
+#### Configure SQLTools for PostgreSQL
+
+After installing SQLTools extensions:
+
+1. Open VS Code
+2. Press `Ctrl+Shift+P` (PC) or `Cmd+Shift+P` (Mac)
+3. Type "SQLTools: Add New Connection"
+4. Select "PostgreSQL"
+5. Configure connection (when needed in Week 3):
+   - **Connection name:** `Local PostgreSQL`
+   - **Server:** `localhost`
+   - **Port:** `5432`
+   - **Database:** `postgres`
+   - **Username:** `postgres` (PC) or your username (Mac)
+   - **Password:** (your PostgreSQL password)
+   - **SSL:** Disabled (for local development)
+
+**Note:** You'll configure this in Week 3 when you start using the database.
 
 ---
 
