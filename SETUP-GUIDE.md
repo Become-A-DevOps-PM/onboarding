@@ -7,6 +7,52 @@
 
 ---
 
+## Table of Contents
+
+### Quick Start
+- [Overview: What You Need to Install](#overview-what-you-need-to-install)
+- [Installation Order](#installation-order)
+- [Important: Which Terminal to Use](#important-which-terminal-to-use)
+
+### Required Accounts
+1. [Azure Account (Pay-as-you-go)](#1-azure-account-pay-as-you-go)
+2. [GitHub Account](#2-github-account)
+
+### Package Managers
+3. [Package Manager (Platform-Specific)](#3-package-manager-platform-specific)
+   - [PC (Windows) - winget](#pc-windows---optional-winget)
+   - [Mac - Homebrew](#mac---required-homebrew)
+
+### Required CLI Tools
+4. [Git (Version Control)](#4-git-version-control)
+5. [Azure CLI (Cloud Management)](#6-azure-cli-cloud-management)
+6. [GitHub CLI (Repository Management)](#7-github-cli-repository-management)
+7. [Bicep CLI (Infrastructure as Code)](#8-bicep-cli-infrastructure-as-code)
+8. [PostgreSQL Client (Database Client)](#10-postgresql-client-database-client)
+
+### Required Development Tools
+9. [Visual Studio Code (IDE)](#5-visual-studio-code-ide)
+10. [Python 3.11+ (Programming Language)](#9-python-311-programming-language)
+
+### Recommended AI Tools
+11. [AI Chatbot (Recommended)](#11-ai-chatbot-recommended)
+    - [Google Gemini](#option-a-google-gemini-recommended-for-students)
+    - [Claude AI](#option-b-claude-ai)
+    - [ChatGPT](#option-c-chatgpt)
+12. [AI CLI Tool (Recommended)](#12-ai-cli-tool-recommended)
+    - [Gemini CLI (Free)](#gemini-cli-free)
+
+### Verification & Help
+- [Verification: Run the Verification Script](#verification-run-the-verification-script)
+- [Expected Results](#expected-results)
+- [Troubleshooting](#troubleshooting)
+- [Quick Reference: Installation Commands](#quick-reference-installation-commands)
+- [Post-Installation Checklist](#post-installation-checklist)
+- [Next Steps](#next-steps)
+- [Support](#support)
+
+---
+
 ## Overview: What You Need to Install
 
 ### Required Accounts
