@@ -1,23 +1,17 @@
 ---
-title: IPL25 Course Setup Guide
-subtitle: Complete Installation Instructions for All Platforms
-course: IPL25 - Server, Network and IT Security
+title: Setup Guide
+subtitle: Complete Installation Instructions for PC and Mac
+course: IPL - Server, Network and IT Security
 version: 1.0
 last_updated: 2025-11-15
 timeline: Install BEFORE course starts (or Day 1 at latest)
 authors:
-  - IPL25 Course Team
-tags:
-  - setup
-  - installation
-  - onboarding
-  - tools
-  - prerequisites
+  - Lars Appel
 ---
 
-# IPL25 Course Setup Guide
+## Setup Guide (IPL - Server, Network and IT Security)
 
-## Complete Installation Instructions for All Platforms
+Complete installation instructions for PC and Mac for the course _IPL - Server, Network and IT Security_
 
 ---
 
