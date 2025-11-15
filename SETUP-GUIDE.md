@@ -598,7 +598,15 @@ python3 --version
 
 ## 10. PostgreSQL Client (Database Client)
 
-**Note:** We install PostgreSQL with both client tools (psql) and server for local development before deploying to Azure.
+**Note:** We use PostgreSQL for **both local development and Azure production** (no SQLite). This ensures:
+- Production parity: Same database everywhere
+- No migration headaches: What works locally works in Azure
+- One database to learn: PostgreSQL only
+
+**Installation Timeline:**
+- **Setup (now)**: Install PostgreSQL locally
+- **Week 1-2**: Not used yet (basic Flask, no database)
+- **Week 3+**: Start using PostgreSQL locally, then deploy to Azure
 
 ### PC (Windows)
 
